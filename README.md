@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Admin Console (Next.js + MUI + Zustand + NextAuth)
 
-## Getting Started
+## Setup
 
-First, run the development server:
+1. Install dependencies
+
+```bash
+npm install
+```
+
+2. Create a local env file
+
+```bash
+cp .env.example .env.local
+```
+
+3. Run the dev server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The app runs at http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Demo credentials
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Username: kminchelle
+- Password: 0lelplR
 
-## Learn More
+## State Management Notes
 
-To learn more about Next.js, take a look at the following resources:
+Zustand was chosen for its simplicity, small footprint, and built-in async actions. It keeps state logic lightweight and readable without the boilerplate that Redux often introduces for small to medium apps.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Caching is implemented in the list stores to reduce duplicate API calls for identical pagination and filter queries.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Highlights
 
-## Deploy on Vercel
+- NextAuth credential login wired to DummyJSON auth
+- Zustand stores for auth, users, and products
+- MUI-based responsive UI for list and detail views
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Scripts
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run dev
+npm run build
+npm run start
+npm run lint
+```
